@@ -61,7 +61,9 @@ const Cart = (props) => {
                 </div>
                 <div className={styles.cartDevider}></div>
                 <div className="paypal-button-container">
-                    <PaypalCheckoutButton subtotal={valSubTotal} /> 
+                    <PaypalCheckoutButton subtotal={valSubTotal}
+                     items={contextItems.items}
+                     customerName="MarcusCustomer" /> 
                 </div>
                 {/* <a href="https://www.altcademy.com/blog/how-to-add-hyperlink-to-button-in-reactjs/#:~:text=router%2Ddom%20library.-,Method%201%3A%20Using%20the%20a%20tag,%3E%20Click%20me!">
                     <button className={styles.checkoutBtn}>Check Out</button>
