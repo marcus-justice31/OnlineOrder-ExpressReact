@@ -1,0 +1,20 @@
+
+.quantity__btn {
+    border: none;
+    background-color: transparent;
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 4px 6px;
+    cursor: pointer;
+}
+
+.quantity__number {
+    display: inline-block;
+    width: 25px;
+    height: 100%;
+    font-size: 1rem;
+    margin: 0 10px;
+    text-align: center;
+    border: none;
+    background-color: transparent;
+}

@@ -1,0 +1,25 @@
+
+.cart-container {
+    position: relative;
+    background-color: #0D1835;
+    padding: .5rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.badge {
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    border-radius: 60%;
+    color: #fff;
+    background-color: #670D49;
+    top: -12px;
+    right: -12px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgb(0, 0, 0, 0);
+}

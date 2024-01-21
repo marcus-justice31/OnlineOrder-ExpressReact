@@ -1,0 +1,36 @@
+.cartItem {
+    background: #3e3e3e;
+    color: #fff;
+    border: 1px solid #000;
+    margin-bottom: 1rem;
+    padding: 0.9rem;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.cartDetails {
+    display: flex;
+    align-items: center;
+}
+.cartDetails img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.cartInfo {
+    display: flex;
+    flex-direction: column;
+    padding: 0 0.9rem;
+}
+.itemQuantity {
+    background-color: #565656;
+}
+.itemQuantity button {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
