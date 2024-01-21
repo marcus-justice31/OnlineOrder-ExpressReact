@@ -3,10 +3,6 @@ const Schema = mongoose.Schema;
 
 // Schema defines the structure for db
 const orderSchema = new Schema({
-    id: {
-        type: String,
-        required: true
-    },
     name: {
         type: String,
         required: true
@@ -21,5 +17,6 @@ const orderSchema = new Schema({
     }
 }, { timestamps: true }); // auto assigns timestamp values everytime a new order is created
 
-const Order = mongoose.model('Order', orderSchema); // model variables are typically capitalized
-module.exports = Order;
+const OrderModel = mongoose.model('Order', orderSchema); // model variables are typically capitalized
+
+module.exports = OrderModel;

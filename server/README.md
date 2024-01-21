@@ -1,1 +1,2 @@
 - npm install dotenv express node-fetch (for paypal)
+- npm install cors (to communicate between reactjs and nodejs)

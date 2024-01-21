@@ -3,6 +3,7 @@ import Header from './components/layout/Header';
 import MenuItems from './components/itemCard/MenuItems';
 import CartProvider from './context/CartProvider';
 import Modal from './components/layout/Modal';
+// import axios from 'axios';
 
 import { PayPalScriptProvider } from "@paypal/react-paypal-js"
 
@@ -28,6 +29,7 @@ function App() {
   //       }
   //     )
   // }, []) // passed in an empty array so it only runs on the first render of the component
+
 
   return (
     <CartProvider>
