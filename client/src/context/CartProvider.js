@@ -77,6 +77,8 @@ const cartReducer = (state, action) => {
 
 const CartProvider = ({children}) => {
     const [ state, dispatch ] = useReducer(cartReducer, cartInitialState)
+
+    console.log('Current state:', state); // debug
     
     const handleAddItem = (item) => {
         dispatch({
