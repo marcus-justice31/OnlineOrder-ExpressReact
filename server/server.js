@@ -3,6 +3,8 @@ const app = express()
 const mongoose = require('mongoose')
 const OrderModel = require('./models/orders')
 
+const cors = require('cors') // allows to connect api with the react frontend
+
 // connect to mongoDB
 const dbURI = 'mongodb+srv://netmarcus:test1234@cluster0.cb0tpt3.mongodb.net/Online-Order?retryWrites=true&w=majority';
 async function connect() {
@@ -20,9 +22,12 @@ connect();
 // need this to parse data as json file
 app.use(express.json());
 
-app.get("/api", (req, res) => {
-    res.json({ "users": ["userOne", "userTwo", "userThree", "userFour"] })
-})
+// need this to connect with frontend
+app.use(cors());
+
+// app.get("/api", (req, res) => {
+//     res.json({ "users": ["userOne", "userTwo", "userThree", "userFour"] })
+// })
 
 //Practice get and post requests (tested using Thunder Client extension on vscode)
 app.get("/test", (req, res) => {
@@ -33,7 +38,7 @@ app.post("/createOrder", async (req, res) => {
     const newOrder = new OrderModel(order);
     await newOrder.save(); // await key word because async function, .save() adds to database
 
-    res.json(order);
+    res.json(order); // sends this back to frontend
 })
 
 
