@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Axios from 'axios';
 
 const PaypalCheckoutButton = (props) => {
-    const { subtotal } = props;
+    const { subtotal, items, customerName } = props;
 
     const [paidFor, setPaidFor] = useState(false);
     const [error, setError] = useState(null);
@@ -24,10 +24,19 @@ const PaypalCheckoutButton = (props) => {
     if (paidFor) {
         // Display success message, modal or redirect user to success page
         alert("Thank you for your purchase!");
-        // Post request to server.js
-        // Axios.post("http://localhost:5000/createOrder", {name: "marcusTest", price: 20, quantity: 10}).then((response) => {
-        //     console.log('added to the database')
-        // })
+        // NOTE: might be redundant since i map it out in cart.js but it works for now (think of more efficient way to fix it later)
+        const orderData = {
+            customerName: customerName, 
+            items: items.map(item => ({
+                name: item.name,
+                price: item.price*item.quantity,
+                quantity: item.quantity
+            }))
+        };
+        // POST request to server.js
+        Axios.post("http://localhost:5000/createOrder", orderData).then((response) => {
+            console.log('added to the database')
+        })
     }
 
     if (error) {
