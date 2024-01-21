@@ -25,9 +25,9 @@ const PaypalCheckoutButton = (props) => {
         // Display success message, modal or redirect user to success page
         alert("Thank you for your purchase!");
         // Post request to server.js
-        Axios.post("http://localhost:5000/createOrder", {name: "marcusTest", price: 20, quantity: 10}).then((response) => {
-            console.log('added to the database')
-        })
+        // Axios.post("http://localhost:5000/createOrder", {name: "marcusTest", price: 20, quantity: 10}).then((response) => {
+        //     console.log('added to the database')
+        // })
     }
 
     if (error) {
