@@ -22,11 +22,11 @@ const PaypalCheckoutButton = (props) => {
     };
 
     // attempt to prevent a double add to the db because if it rerenders it would add twice
-    useEffect(() => {
-        if (paidFor) {
+    useEffect(() => { 
+        if (paidFor) { 
             // Display success message, modal or redirect user to success page
             alert("Thank you for your purchase!");
-            // NOTE: might be redundant since i map it out in cart.js but it works for now (think of more efficient way to fix it later)
+            // NOTE: might be redundant since I map it out in cart.js but it works for now (think of more efficient way to fix it later)
             const orderData = {
                 customerName: customerName, 
                 items: items.map(item => ({
