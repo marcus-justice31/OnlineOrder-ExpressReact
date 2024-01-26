@@ -1,5 +1,5 @@
 import { PayPalButtons } from "@paypal/react-paypal-js";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import Axios from 'axios';
 
@@ -15,30 +15,33 @@ const PaypalCheckoutButton = (props) => {
         // If response is success
         setPaidFor(true);
 
-        // Refresh user's account or subscription status
+        // Example of what I could do after payment is successful: Refresh user's account or subscription status
 
         // If the response is error
         // setError("Error with payment.")
     };
 
-    if (paidFor) {
-        // Display success message, modal or redirect user to success page
-        alert("Thank you for your purchase!");
-        // NOTE: might be redundant since i map it out in cart.js but it works for now (think of more efficient way to fix it later)
-        const orderData = {
-            customerName: customerName, 
-            items: items.map(item => ({
-                name: item.name,
-                price: item.price*item.quantity,
-                quantity: item.quantity
-            }))
-        };
-        // POST request to server.js
-        Axios.post("http://localhost:5000/createOrder", orderData).then((response) => {
-            console.log('added to the database')
-        })
-    }
-
+    // attempt to prevent a double add to the db because if it rerenders it would add twice
+    useEffect(() => {
+        if (paidFor) {
+            // Display success message, modal or redirect user to success page
+            alert("Thank you for your purchase!");
+            // NOTE: might be redundant since i map it out in cart.js but it works for now (think of more efficient way to fix it later)
+            const orderData = {
+                customerName: customerName, 
+                items: items.map(item => ({
+                    name: item.name,
+                    price: item.price*item.quantity,
+                    quantity: item.quantity
+                }))
+            };
+            // POST request to server.js
+            Axios.post("http://localhost:5000/createOrder", orderData).then((response) => {
+                console.log('added to the database')
+            })
+        }
+    })
+    
     if (error) {
         // Display error message, modal or redirect user to error page
         alert(error);

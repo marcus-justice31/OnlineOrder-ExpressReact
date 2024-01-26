@@ -6,7 +6,7 @@ const OrderModel = require('./models/orders')
 const cors = require('cors') // allows to connect api with the react frontend
 
 // connect to mongoDB
-const dbURI = 'mongodb+srv://netmarcus:test1234@cluster0.cb0tpt3.mongodb.net/Online-Order?retryWrites=true&w=majority';
+const dbURI = `mongodb+srv://netmarcus:test1234@cluster0.cb0tpt3.mongodb.net/Online-Order?retryWrites=true&w=majority`;
 async function connect() {
     try {
         await mongoose.connect(dbURI);
